@@ -1,0 +1,52 @@
+{
+  "name": "@ohos/drivers_interface_pcie",
+  "description": "drivers interface pcie",
+  "version": "1.0",
+  "license": "Apache License 2.0",
+  "publishAs": "code-segment",
+  "segment": {
+    "destPath": "drivers/interface/pcie"
+  },
+  "dirs": {},
+  "scripts": {},
+  "component": {
+    "name": "drivers_interface_pcie",
+    "subsystem": "hdf",
+    "adapted_system_type": ["standard"],
+    "rom": "120KB",
+    "ram": "256KB",
+    "deps": {
+      "components": ["ipc", "hdf_core", "hilog", "c_utils"],
+      "third_party": []
+    },
+    "build": {
+      "sub_component": [
+        "//drivers/interface/pcie/v1_0:pcie_interface_idl_target"
+      ],
+      "test": [],
+      "inner_kits": [
+        {
+          "name": "//drivers/interface/pcie/v1_0:libpcie_interface_proxy_1.0",
+          "header": {
+            "header_files": [],
+            "header_base": "//drivers/interface/pcie"
+          }
+        },
+        {
+          "name": "//drivers/interface/pcie/v1_0:libpcie_interface_stub_1.0",
+          "header": {
+            "header_files": [],
+            "header_base": "//drivers/interface/pcie"
+          }
+        },
+        {
+          "name": "//drivers/interface/pcie/v1_0:pcie_interface_idl_headers",
+          "header": {
+            "header_files": [],
+            "header_base": "//drivers/interface/pcie"
+          }
+        }
+      ]
+    }
+  }
+}
