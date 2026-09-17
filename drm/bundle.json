@@ -30,6 +30,7 @@
         "//drivers/interface/drm/v1_0:libdrm_stub_1.0",
         "//drivers/interface/drm/v1_1:drm_idl_target",
         "//drivers/interface/drm/v1_1:libdrm_stub_1.1"
+        ""
       ],
       "test": [
       ],
