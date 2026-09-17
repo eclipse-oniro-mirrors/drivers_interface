@@ -1,0 +1,37 @@
+/*
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ 
+/**
+ * @file IMediaKeySession.idl
+ *
+ * @brief Defines methods used in MediaKeySession.
+ * @since 7.1
+ * @version 1.2
+ */
+ 
+ 
+package ohos.hdi.drm.v1_2;
+ 
+import ohos.hdi.drm.v1_2.MediaKeySystemTypes;
+import ohos.hdi.drm.v1_0.IMediaKeySession;
+import ohos.hdi.drm.v1_2.ICryptoModule;
+ 
+interface IMediaKeySession extends ohos.hdi.drm.v1_0.IMediaKeySession {
+    GetConfigurationString([in] String name, [out] String value);
+    SetConfigurationString([in] String name, [in] String value);
+    GetConfigurationByteArray([in] String name, [out] unsigned char[] value);
+    SetConfigurationByteArray([in] String name, [in] unsigned char[] value);
+    GetCryptoModule([out] ICryptoModule cryptoModule);
+};
