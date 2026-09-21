@@ -20,6 +20,11 @@ hdi("daudioext") {
     "IDAudioManager.idl",
     "Types.idl",
   ]
+  branch_protector_ret = "pac_ret"
+  sanitize = {
+    cfi = true
+    cfi_cross_dso = true
+  }
   language = "cpp"
   root = "ohos.hdi://drivers/interface/"
   subsystem_name = "hdf"
