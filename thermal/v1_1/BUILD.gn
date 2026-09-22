@@ -27,7 +27,7 @@ if (defined(ohos_lite)) {
       "IThermalInterface.idl",
       "ThermalTypes.idl",
     ]
-
+    sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
     language = "cpp"
     subsystem_name = "hdf"
     part_name = "drivers_interface_thermal"
