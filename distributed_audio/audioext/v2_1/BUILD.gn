@@ -25,6 +25,7 @@ hdi("daudioext") {
     cfi = true
     cfi_cross_dso = true
   }
+  sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
   language = "cpp"
   root = "ohos.hdi://drivers/interface/"
   subsystem_name = "hdf"
