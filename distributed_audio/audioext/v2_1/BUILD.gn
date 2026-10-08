@@ -24,6 +24,7 @@ hdi("daudioext") {
   sanitize = {
     cfi = true
     cfi_cross_dso = true
+    debug = false
   }
   sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
   language = "cpp"
