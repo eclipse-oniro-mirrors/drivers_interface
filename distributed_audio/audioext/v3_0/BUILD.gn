@@ -26,6 +26,7 @@ hdi("daudioext") {
   sanitize = {
     cfi = true
     cfi_cross_dso = true
+    debug = false
   }
   root = "ohos.hdi://drivers/interface/"
   subsystem_name = "hdf"
