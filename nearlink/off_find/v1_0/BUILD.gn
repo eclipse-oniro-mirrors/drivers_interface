@@ -26,4 +26,11 @@ hdi("off_find") {
   subsystem_name = "hdf"
   root = "ohos.hdi://drivers/interface"
   part_name = "drivers_interface_nearlink"
+  branch_protector_ret = "pac_ret"
+  sanitize = {
+    cfi = true
+    cfi_cross_dso = true
+    cfi_vcall_icall_only = true
+    debug = false
+  }
 }
