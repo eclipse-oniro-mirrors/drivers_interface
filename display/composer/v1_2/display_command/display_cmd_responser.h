@@ -16,6 +16,7 @@
 #ifndef OHOS_HDI_DISPLAY_V1_2_DISPLAY_CMD_REQUESTER_H
 #define OHOS_HDI_DISPLAY_V1_2_DISPLAY_CMD_REQUESTER_H
 
+#include <unistd.h>
 #include "v1_0/display_command/display_cmd_responser.h"
 #include "v1_1/display_command/display_cmd_responser.h"
 #include "v1_2/display_composer_type.h"
@@ -56,6 +57,15 @@ public:
     DisplayCmdResponser(VdiImpl* impl, std::shared_ptr<DeviceCacheManager> cacheMgr) : BaseType1_1(impl, cacheMgr) {}
 
     virtual ~DisplayCmdResponser() {}
+
+    static void CloseFenceFd(int32_t& fd)
+    {
+        if (fd < 0) {
+            return;
+        }
+        close(fd);
+        fd = -1;
+    }
 
     int32_t ProcessRequestCmd(CommandDataUnpacker& unpacker, int32_t cmd,
         const std::vector<HdifdInfo>& inFds, std::vector<HdifdInfo>& outFds)
@@ -139,8 +149,16 @@ public:
                 HDF_LOGE("%{public}s, write fences.size error", __func__));
 
             for (uint32_t i = 0; i < vectSize; i++) {
+#ifdef DISPLAY_COMMUNITY
+                ret = CmdUtils::FileDescriptorPack(commitInfo.fences[i], replyPacker_, outFds);
+                DISPLAY_CHECK(ret != HDF_SUCCESS, HDF_LOGE("%{public}s, write fences error", __func__));
+                if (ret == HDF_SUCCESS) {
+                    CloseFenceFd(commitInfo.fences[i]);
+                }
+#else
                 ret = CmdUtils::FileDescriptorPack(commitInfo.fences[i], replyPacker_, outFds, false);
                 DISPLAY_CHECK(ret != HDF_SUCCESS, HDF_LOGE("%{public}s, write fences error", __func__));
+#endif
             }
         }
 
