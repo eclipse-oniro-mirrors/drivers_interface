@@ -16,7 +16,10 @@
 #ifndef OHOS_HDI_DISPLAY_V1_2_DISPLAY_CMD_REQUESTER_H
 #define OHOS_HDI_DISPLAY_V1_2_DISPLAY_CMD_REQUESTER_H
 
+#ifdef DISPLAY_COMMUNITY
 #include <unistd.h>
+#endif
+
 #include "v1_0/display_command/display_cmd_responser.h"
 #include "v1_1/display_command/display_cmd_responser.h"
 #include "v1_2/display_composer_type.h"
@@ -58,6 +61,7 @@ public:
 
     virtual ~DisplayCmdResponser() {}
 
+#ifdef DISPLAY_COMMUNITY
     static void CloseFenceFd(int32_t& fd)
     {
         if (fd < 0) {
@@ -66,6 +70,7 @@ public:
         close(fd);
         fd = -1;
     }
+#endif
 
     int32_t ProcessRequestCmd(CommandDataUnpacker& unpacker, int32_t cmd,
         const std::vector<HdifdInfo>& inFds, std::vector<HdifdInfo>& outFds)
