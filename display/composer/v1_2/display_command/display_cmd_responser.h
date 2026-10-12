@@ -58,6 +58,7 @@ public:
 
     virtual ~DisplayCmdResponser() {}
 
+#ifdef DISPLAY_COMMUNITY
     static void CloseFenceFd(int32_t& fd)
     {
         if (fd < 0) {
@@ -66,6 +67,7 @@ public:
         close(fd);
         fd = -1;
     }
+#endif
 
     int32_t ProcessRequestCmd(CommandDataUnpacker& unpacker, int32_t cmd,
         const std::vector<HdifdInfo>& inFds, std::vector<HdifdInfo>& outFds)
