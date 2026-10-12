@@ -151,14 +151,13 @@ public:
             for (uint32_t i = 0; i < vectSize; i++) {
 #ifndef DISPLAY_COMMUNITY
                 ret = CmdUtils::FileDescriptorPack(commitInfo.fences[i], replyPacker_, outFds, false);
-                DISPLAY_CHECK(ret != HDF_SUCCESS, HDF_LOGE("%{public}s, write fences error", __func__));
 #else
                 ret = CmdUtils::FileDescriptorPack(commitInfo.fences[i], replyPacker_, outFds);
-                DISPLAY_CHECK(ret != HDF_SUCCESS, HDF_LOGE("%{public}s, write fences error", __func__));
                 if (ret == HDF_SUCCESS) {
                     CloseFenceFd(commitInfo.fences[i]);
                 }
 #endif
+                DISPLAY_CHECK(ret != HDF_SUCCESS, HDF_LOGE("%{public}s, write fences error", __func__));
             }
         }
 
