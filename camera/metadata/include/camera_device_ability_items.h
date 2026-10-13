@@ -3166,6 +3166,27 @@ typedef enum camera_device_metadata_tag {
      */
     OHOS_CONTROL_SATURATION,
     /**
+     * ohos.ability.colorCubeDimension [static, int32, public]
+     *
+     * camera device property, report current camera support cube dimension
+     * (i.e.int32...)
+     */
+    OHOS_ABILITY_COLOR_CUBE_DIMENSION,
+    /**
+     * ohos.ability.contrast [static, int32[], public]
+     *
+     * camera device property, report current camera support contrast values
+     * (i.e. int32[] ...)
+     */
+    OHOS_ABILITY_CONTRAST_RANGE,
+    /**
+     * ohos.control.contrast [static, int32, public]
+     *
+     * camera device property, set current camera contrast value
+     * (i.e. int32 ...)
+     */
+    OHOS_CONTROL_CONTRAST,
+    /**
      * ohos.xmage.colorMoodesEnd
      *
      * camera xmage end
