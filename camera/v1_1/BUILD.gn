@@ -37,6 +37,7 @@ if (defined(ohos_lite)) {
       "../v1_0:libcamera_proxy_1.0",
     ]
     sequenceable_ext_deps = [
+      "bounds_checking_function:libsec_shared",
       "graphic_surface:buffer_handle",
       "graphic_surface:surface",
     ]
