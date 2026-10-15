@@ -27,7 +27,8 @@
         "components": [
           "c_utils",
           "hdf_core",
-          "hilog"
+          "hilog",
+          "bounds_checking_function"
         ],
         "third_party": []
       },
