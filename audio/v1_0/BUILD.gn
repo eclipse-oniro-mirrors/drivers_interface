@@ -31,6 +31,7 @@ if (defined(ohos_lite)) {
       "IAudioRender.idl",
     ]
 
+    sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
     language = "c"
     subsystem_name = "hdf"
     part_name = "drivers_interface_audio"
