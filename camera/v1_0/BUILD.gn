@@ -39,6 +39,7 @@ if (defined(ohos_lite)) {
       "../sequenceable/buffer_producer:libbuffer_producer_sequenceable_1.0",
     ]
     sequenceable_ext_deps = [
+      "bounds_checking_function:libsec_shared",
       "graphic_surface:buffer_handle",
       "graphic_surface:surface",
     ]
