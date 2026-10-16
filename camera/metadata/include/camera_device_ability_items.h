@@ -34,6 +34,7 @@ typedef enum camera_ability_section {
     OHOS_LIGHT_STATUS,
     OHOS_DATA_DELIVERY,
     OHOS_OPTICAL_IMAGE_STABILIZATION,
+    OHOS_IN_FRAME_METADATA_FOR_ENCODER,
 
     // Camera effects & algorithms
     OHOS_CAMERA_EFFECT = 0x2000,
@@ -95,6 +96,7 @@ typedef enum camera_device_metadata_section_start {
     OHOS_LIGHT_STATUS_START = OHOS_LIGHT_STATUS << 16,
     OHOS_DATA_DELIVERY_START = OHOS_DATA_DELIVERY << 16,
     OHOS_OPTICAL_IMAGE_STABILIZATION_START = OHOS_OPTICAL_IMAGE_STABILIZATION << 16,
+    OHOS_IN_FRAME_METADATA_FOR_ENCODER_START = OHOS_IN_FRAME_METADATA_FOR_ENCODER << 16,
 } camera_device_info_section_start_t;
 
 typedef enum camera_device_metadata_tag {
@@ -3380,6 +3382,21 @@ typedef enum camera_device_metadata_tag {
     OHOS_ABILITY_OPTICAL_IMAGE_STABILIZATION_BIAS_RANGE,
     OHOS_CONTROL_SET_CUSTOM_OPTICAL_IMAGE_STABILIZATION_BIAS,
     OHOS_OPTICAL_IMAGE_STABILIZATION_END,
+
+    // IN_FRAME_METADATA_FOR_ENCODER mode
+    /**
+     * ohos.ability.inFrameMetadataForEncoder [static, uint8, public]
+     * (i.e. byte: 0-false/1-true ...)
+     * Check if in frame metadata for encoder is supported
+     */
+    OHOS_ABILITY_IN_FRAME_METADATA_FOR_ENCODER = OHOS_IN_FRAME_METADATA_FOR_ENCODER_START,
+    /**
+     * ohos.control.inFrameMetadataForEncoder [static, uint8, public]
+     * (i.e. byte: 0-false/1-true ...)
+     * set current in frame metadata for encoder enable
+     */
+    OHOS_CONTROL_IN_FRAME_METADATA_FOR_ENCODER,
+    OHOS_IN_FRAME_METADATA_FOR_ENCODER_END,
 } camera_device_metadata_tag_t;
 
 // OHOS_ABILITY_AUTO_AUXILIARY_PHOTOS_DELIVERY,

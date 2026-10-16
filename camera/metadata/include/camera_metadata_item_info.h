@@ -54,6 +54,8 @@ static uint32_t g_ohosCameraSectionBounds[OHOS_SECTION_COUNT][2] = {
     [OHOS_SECTION_DATA_DELIVERY]= {OHOS_DATA_DELIVERY_START, OHOS_DATA_DELIVERY_END },
     [OHOS_SECTION_OPTICAL_IMAGE_STABILIZATION] =
         {OHOS_OPTICAL_IMAGE_STABILIZATION_START, OHOS_OPTICAL_IMAGE_STABILIZATION_END},
+    [OHOS_SECTION_IN_FRAME_METADATA_FOR_ENCODER] =
+        {OHOS_IN_FRAME_METADATA_FOR_ENCODER_START, OHOS_IN_FRAME_METADATA_FOR_ENCODER_END},
 };
 
 static item_info_t g_ohosCameraProperties[OHOS_CAMERA_PROPERTIES_END - OHOS_CAMERA_PROPERTIES_START] = {
@@ -190,6 +192,14 @@ static item_info_t g_ohosCameraProperties[OHOS_CAMERA_PROPERTIES_END - OHOS_CAME
         OHOS_CAMERA_PROPERTIES_START] = {"automotiveCameraSensorType", META_TYPE_BYTE, 1},
     [OHOS_ABILITY_COMMON_PUBLISHED_FEATURES -
         OHOS_CAMERA_PROPERTIES_START] = {"commonPublishedFeatures", META_TYPE_UINT32, -1},
+};
+
+static item_info_t g_ohosCameraInFrameMetadataForEncoder[
+    OHOS_IN_FRAME_METADATA_FOR_ENCODER_END - OHOS_IN_FRAME_METADATA_FOR_ENCODER_START] = {
+    [OHOS_ABILITY_IN_FRAME_METADATA_FOR_ENCODER -
+        OHOS_IN_FRAME_METADATA_FOR_ENCODER_START] = {"isInFrameMetadataForEncoderSupported", META_TYPE_BYTE, 1},
+    [OHOS_CONTROL_IN_FRAME_METADATA_FOR_ENCODER -
+        OHOS_IN_FRAME_METADATA_FOR_ENCODER_START] = {"enableInFrameMetadataForEncoder", META_TYPE_BYTE, 1},
 };
 
 static item_info_t g_ohosCameraSensor[OHOS_CAMERA_SENSOR_END - OHOS_CAMERA_SENSOR_START] = {
@@ -920,6 +930,7 @@ const static item_info_t *g_ohosItemInfo[OHOS_SECTION_COUNT] = {
     g_ohosCameraLightStatus,
     g_ohosCameraDataDelivery,
     g_ohosCameraOpticalImageStabilization,
+    g_ohosCameraInFrameMetadataForEncoder,
 };
 } // namespace Camera
 #endif /* CAMERA_METADATA_ITEM_INFO_H */
