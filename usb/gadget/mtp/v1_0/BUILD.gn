@@ -20,6 +20,8 @@ hdi("usbfn_mtp") {
     "UsbfnMtpTypes.idl",
   ]
 
+  sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
+
   language = "cpp"
   mode = "ipc"
   subsystem_name = "hdf"

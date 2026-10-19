@@ -29,6 +29,8 @@ if (defined(ohos_lite)) {
       "../v1_1:libusb_stub_1.1",
     ]
 
+    sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
+
     sources = [
       "IUsbInterface.idl",
       "IUsbdTransferCallback.idl",
