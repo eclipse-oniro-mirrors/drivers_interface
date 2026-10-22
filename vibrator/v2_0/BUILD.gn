@@ -28,6 +28,7 @@ if (defined(ohos_lite)) {
     ]
 
     language = "cpp"
+    sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
     subsystem_name = "hdf"
     part_name = "drivers_interface_vibrator"
     if (!use_clang_coverage) {

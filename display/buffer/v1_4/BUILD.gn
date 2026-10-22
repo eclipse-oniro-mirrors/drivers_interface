@@ -42,6 +42,7 @@ hdi("display_buffer") {
   no_other_header_files = true
 
   language = "cpp"
+  sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
   subsystem_name = "hdf"
   part_name = "drivers_interface_display"
   if (!use_clang_coverage) {
