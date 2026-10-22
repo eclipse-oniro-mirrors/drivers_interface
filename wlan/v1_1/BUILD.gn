@@ -31,6 +31,7 @@ if (defined(ohos_lite)) {
     language = "c"
     subsystem_name = "hdf"
     part_name = "drivers_interface_wlan"
+    sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
     defines = [ "LOG_DOMAIN=0xD001566" ]
   }
 }
