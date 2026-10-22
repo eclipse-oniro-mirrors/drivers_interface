@@ -14,6 +14,7 @@ hdi("zcodec") {
     no_other_header_files = true
     branch_protector_ret = "pac_ret"
     language = "cpp"
+    sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
     innerapi_tags = [
       "chipsetsdk"
     ]

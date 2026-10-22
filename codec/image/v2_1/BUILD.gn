@@ -26,6 +26,7 @@ if (defined(ohos_lite)) {
       "ICodecImage.idl",
     ]
     language = "cpp"
+    sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
     subsystem_name = "hdf"
     part_name = "drivers_interface_codec"
   }
