@@ -24,6 +24,9 @@ hdi("nearlink_hci") {
 
   language = "cpp"
   subsystem_name = "hdf"
+  external_deps = [
+    "bounds_checking_function:libsec_shared",
+  ]
   root = "ohos.hdi://drivers/interface"
   part_name = "drivers_interface_nearlink"
   branch_protector_ret = "pac_ret"
