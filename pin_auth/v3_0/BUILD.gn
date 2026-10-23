@@ -27,6 +27,12 @@ hdi("pin_auth") {
   language = "cpp"
   subsystem_name = "hdf"
   part_name = "drivers_interface_pin_auth"
+  sanitize = {
+    cfi = true
+    cfi_cross_dso = true
+    debug = false
+  }
+  branch_protector_ret = "pac_ret"
  
   if (!use_clang_coverage) {
     client_version_script = "client.map"
