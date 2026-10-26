@@ -181,7 +181,12 @@ public:
             if (ret == ALLOC_MEM_BAD_OBJ || ret == ALLOC_MEM_INVALID_CLIENT) {
                 badClient_ = true;
             }
-            HDF_LOGE("%{public}s: AllocMem error.ret:%{public}d", __func__, ret);
+            static int64_t allocMemErrorCount = 0;
+            allocMemErrorCount++;
+            if (allocMemErrorCount % 10 == 0) {
+                HDF_LOGE("%{public}s: AllocMem error.ret:%{public}d, allocMemErrorCount:%{public}d",
+                    __func__, ret, allocMemErrorCount);
+            }
         }
         return ret;
     }
