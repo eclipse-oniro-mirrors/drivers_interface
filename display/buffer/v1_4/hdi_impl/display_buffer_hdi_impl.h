@@ -81,7 +81,12 @@ public:
             if (ret == ALLOC_MEM_BAD_OBJ || ret == ALLOC_MEM_INVALID_CLIENT) {
                 badClient_ = true;
             }
-            HDF_LOGE("%{public}s:CloneDmaBufferHandle failed, ret : %{public}d", __func__, ret);
+            static int64_t cloneDmaBufferHandleErrorCount = 0;
+            cloneDmaBufferHandleErrorCount++;
+            if (cloneDmaBufferHandleErrorCount % 10 == 0) {
+                HDF_LOGE("%{public}s:CloneDmaBufferHandle failed, ret : %{public}d, cloneDmaBufferHandleErrorCount:%{public}d",
+                    __func__, ret, cloneDmaBufferHandleErrorCount);
+            }
         }
         return ret;
     }
