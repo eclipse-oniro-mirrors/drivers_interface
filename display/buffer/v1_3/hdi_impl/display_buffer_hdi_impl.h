@@ -91,7 +91,7 @@ public:
             if (ret == HDF_SUCCESS) {
                 ret = HDF_FAILURE;
             }
-            HDF_LOGE("%{public}s: AllocMem error", __func__);
+            HDF_LOGD("%{public}s: AllocMem error", __func__);
         }
         return ret;
     }
@@ -114,7 +114,7 @@ public:
             if (ret == ALLOC_MEM_BAD_OBJ || ret == ALLOC_MEM_INVALID_CLIENT) {
                 badClient_ = true;
             }
-            HDF_LOGE("%{public}s: AllocMem error, ret:%{public}d", __func__, ret);
+            HDF_LOGD("%{public}s: AllocMem error, ret:%{public}d", __func__, ret);
         }
         return ret;
     }
@@ -129,7 +129,7 @@ public:
         if (mapper_v1_3_->IsSupportAllocPassthrough(info) == HDF_SUCCESS) {
             int32_t ret = AllocMemPassThrough(info, handle);
             if (ret != HDF_SUCCESS) {
-                HDF_LOGW("%{public}s: AllocMem Passthrough mode failed, use allocator_host", __func__);
+                HDF_LOGD("%{public}s: AllocMem Passthrough mode failed, use allocator_host", __func__);
                 return AllocMemIpc(info, handle);
             }
             return ret;
