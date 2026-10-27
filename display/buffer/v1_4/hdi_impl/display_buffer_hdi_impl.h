@@ -83,7 +83,7 @@ public:
             }
             static int64_t cloneDmaBufferHandleErrorCount = 0;
             cloneDmaBufferHandleErrorCount++;
-            if (cloneDmaBufferHandleErrorCount % MAX_ERROR_COUNT == 0) {
+            if (cloneDmaBufferHandleErrorCount % HDF_BUFFER_MAX_ERROR_COUNT == 0) {
                 HDF_LOGE("%{public}s:CloneDmaBufferHandle failed, ret : %{public}d, cloneDmaBufferHandleErrorCount:"
                     "%{public}s", __func__, ret, std::to_string(cloneDmaBufferHandleErrorCount).c_str());
             }

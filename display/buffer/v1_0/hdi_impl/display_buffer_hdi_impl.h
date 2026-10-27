@@ -37,8 +37,8 @@
 #define LOG_DOMAIN 0xD002515
 #define DISPLAY_TRACE HdfTrace trace(__func__, "HDI:DISP:IMPL:")
 
-#ifndef MAX_ERROR_COUNT
-#define MAX_ERROR_COUNT 10
+#ifndef HDF_BUFFER_MAX_ERROR_COUNT
+#define HDF_BUFFER_MAX_ERROR_COUNT 10
 #endif
 
 #ifndef BUFFER_HDI_IMPL_LOGE
@@ -187,7 +187,7 @@ public:
             }
             static int64_t allocMemErrorCount = 0;
             allocMemErrorCount++;
-            if (allocMemErrorCount % MAX_ERROR_COUNT == 0) {
+            if (allocMemErrorCount % HDF_BUFFER_MAX_ERROR_COUNT == 0) {
                 HDF_LOGE("%{public}s: AllocMem error.ret:%{public}d, allocMemErrorCount:%{public}s",
                     __func__, ret, std::to_string(allocMemErrorCount).c_str());
             }
