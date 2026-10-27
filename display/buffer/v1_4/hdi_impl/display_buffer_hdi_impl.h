@@ -83,9 +83,9 @@ public:
             }
             static int64_t cloneDmaBufferHandleErrorCount = 0;
             cloneDmaBufferHandleErrorCount++;
-            if (cloneDmaBufferHandleErrorCount % 10 == 0) {
-                HDF_LOGE("%{public}s:CloneDmaBufferHandle failed, ret : %{public}d, cloneDmaBufferHandleErrorCount:%{public}d",
-                    __func__, ret, cloneDmaBufferHandleErrorCount);
+            if (cloneDmaBufferHandleErrorCount % MAX_ERROR_COUNT == 0) {
+                HDF_LOGE("%{public}s:CloneDmaBufferHandle failed, ret : %{public}d, cloneDmaBufferHandleErrorCount:"
+                    "%{public}d", __func__, ret, cloneDmaBufferHandleErrorCount);
             }
         }
         return ret;
