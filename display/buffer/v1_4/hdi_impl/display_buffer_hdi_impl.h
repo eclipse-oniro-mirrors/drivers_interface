@@ -81,11 +81,11 @@ public:
             if (ret == ALLOC_MEM_BAD_OBJ || ret == ALLOC_MEM_INVALID_CLIENT) {
                 badClient_ = true;
             }
-            static int64_t cloneDmaBufferHandleErrorCount = 0;
+            static uint32_t cloneDmaBufferHandleErrorCount = 0;
             cloneDmaBufferHandleErrorCount++;
             if (cloneDmaBufferHandleErrorCount % HDF_BUFFER_MAX_ERROR_COUNT == 0) {
                 HDF_LOGE("%{public}s:CloneDmaBufferHandle failed, ret : %{public}d, cloneDmaBufferHandleErrorCount:"
-                    "%{public}s", __func__, ret, std::to_string(cloneDmaBufferHandleErrorCount).c_str());
+                    "%{public}u", __func__, ret, cloneDmaBufferHandleErrorCount);
             }
         }
         return ret;
