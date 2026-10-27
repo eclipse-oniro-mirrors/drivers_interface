@@ -188,8 +188,8 @@ public:
             static int64_t allocMemErrorCount = 0;
             allocMemErrorCount++;
             if (allocMemErrorCount % MAX_ERROR_COUNT == 0) {
-                HDF_LOGE("%{public}s: AllocMem error.ret:%{public}d, allocMemErrorCount:%{public}lld",
-                    __func__, ret, allocMemErrorCount);
+                HDF_LOGE("%{public}s: AllocMem error.ret:%{public}d, allocMemErrorCount:%{public}s",
+                    __func__, ret, std::to_string(allocMemErrorCount).c_str());
             }
         }
         return ret;
