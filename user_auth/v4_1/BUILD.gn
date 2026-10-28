@@ -33,6 +33,12 @@ hdi("user_auth") {
   }
   subsystem_name = "hdf"
   part_name = "drivers_interface_user_auth"
+  branch_protector_ret = "pac_ret"
+  sanitize = {
+    cfi = true
+    cfi_cross_dso = true
+    debug = false
+  }
 
   sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
 }
