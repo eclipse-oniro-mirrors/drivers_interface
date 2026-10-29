@@ -13,6 +13,8 @@
 
 import("//build/config/components/hdi/hdi.gni")
 hdi("secure_element") {
+  branch_protector_ret = "pac_ret"
+  
   module_name = "secure_element_service"
 
   sources = [
