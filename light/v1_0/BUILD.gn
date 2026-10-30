@@ -32,8 +32,8 @@ if (defined(ohos_lite)) {
     subsystem_name = "hdf"
     part_name = "drivers_interface_light"
     if (!use_clang_coverage) {
-      client_version_script = "light_1.0.map"
-      server_version_script = "light_1.0.map"
+      client_version_script = "light_proxy_1.0.map"
+      server_version_script = "light_stub_1.0.map"
     }
   }
 }

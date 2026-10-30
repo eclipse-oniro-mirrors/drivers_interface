@@ -27,7 +27,7 @@ hdi("display_commontype") {
   subsystem_name = "hdf"
   part_name = "drivers_interface_display"
   if (!use_clang_coverage) {
-    client_version_script = "display_commontype_1.0.map"
-    server_version_script = "display_commontype_1.0.map"
+    client_version_script = "display_commontype_proxy_1.0.map"
+    server_version_script = "display_commontype_stub_1.0.map"
   }
 }

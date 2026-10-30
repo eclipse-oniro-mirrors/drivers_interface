@@ -45,6 +45,11 @@ hdi("display_composer") {
   public_configs = ["../hdifd_parcelable/",]
 
   no_other_header_files = true
+
+  if (!use_clang_coverage) {
+    client_version_script = "display_composer_proxy_1.4.map"
+    server_version_script = "display_composer_stub_1.4.map"
+  }
 }
 
 config("libdisplay_composer_hdi_impl_config") {
