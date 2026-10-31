@@ -46,8 +46,8 @@ hdi("display_buffer") {
   subsystem_name = "hdf"
   part_name = "drivers_interface_display"
   if (!use_clang_coverage) {
-    client_version_script = "display_buffer_1.4.map"
-    server_version_script = "display_buffer_1.4.map"
+    client_version_script = "display_buffer_proxy_1.4.map"
+    server_version_script = "display_buffer_stub_1.4.map"
   }
 }
 

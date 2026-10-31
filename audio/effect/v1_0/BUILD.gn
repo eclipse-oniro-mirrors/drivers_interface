@@ -33,8 +33,8 @@ if (defined(ohos_lite)) {
     subsystem_name = "hdf"
     part_name = "drivers_interface_audio"
     if (!use_clang_coverage) {
-      client_version_script = "effect_1.0.map"
-      server_version_script = "effect_1.0.map"
+      client_version_script = "effect_proxy_1.0.map"
+      server_version_script = "effect_stub_1.0.map"
     }
   }
 }

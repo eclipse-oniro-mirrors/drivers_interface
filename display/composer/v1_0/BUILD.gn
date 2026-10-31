@@ -33,4 +33,9 @@ hdi("display_composer") {
   part_name = "drivers_interface_display"
 
   public_configs = [ "../hdifd_parcelable/" ]
+
+  if (!use_clang_coverage) {
+    client_version_script = "display_composer_proxy_1.0.map"
+    server_version_script = "display_composer_stub_1.0.map"
+  }
 }

@@ -41,8 +41,8 @@ if (defined(ohos_lite)) {
     ]
     part_name = "drivers_interface_audio"
     if (!use_clang_coverage) {
-      client_version_script = "audio_6.0.map"
-      server_version_script = "audio_6.0.map"
+      client_version_script = "audio_proxy_6.0.map"
+      server_version_script = "audio_stub_6.0.map"
     }
   }
 }

@@ -37,6 +37,11 @@ hdi("display_composer") {
   sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
   subsystem_name = "hdf"
   part_name = "drivers_interface_display"
+
+  if (!use_clang_coverage) {
+    client_version_script = "display_composer_proxy_1.3.map"
+    server_version_script = "display_composer_stub_1.3.map"
+  }
 }
 
 config("libdisplay_composer_hdi_impl_config") {

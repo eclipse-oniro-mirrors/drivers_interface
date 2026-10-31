@@ -26,7 +26,7 @@ hdi("motion") {
   subsystem_name = "hdf"
   part_name = "drivers_interface_motion"
   if (!use_clang_coverage) {
-    client_version_script = "motion_1.1.map"
-    server_version_script = "motion_1.1.map"
+    client_version_script = "motion_proxy_1.1.map"
+    server_version_script = "motion_stub_1.1.map"
   }
 }
