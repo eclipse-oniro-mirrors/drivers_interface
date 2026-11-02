@@ -31,6 +31,7 @@ if (defined(ohos_lite)) {
     sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
     subsystem_name = "hdf"
     part_name = "drivers_interface_vibrator"
+    branch_protector_ret = "pac_ret"
     if (!use_clang_coverage) {
       client_version_script = "vibrator_proxy_2.0.map"
       server_version_script = "vibrator_stub_2.0.map"

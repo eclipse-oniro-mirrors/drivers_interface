@@ -46,5 +46,6 @@ if (defined(ohos_lite)) {
     subsystem_name = "hdf"
     part_name = "drivers_interface_camera"
     defines = [ "LOG_DOMAIN=0xD002513" ]
+    branch_protector_ret = "pac_ret"
   }
 }

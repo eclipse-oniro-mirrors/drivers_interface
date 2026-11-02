@@ -63,5 +63,6 @@ if (defined(ohos_lite)) {
     language = "cpp"
     subsystem_name = "hdf"
     part_name = "drivers_interface_camera"
+    branch_protector_ret = "pac_ret"
   }
 }
