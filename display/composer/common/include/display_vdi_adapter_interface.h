@@ -24,11 +24,13 @@
 #include "v1_3/include/idisplay_composer_interface.h"
 #include "v1_4/include/idisplay_composer_interface.h"
 #include "v1_5/include/idisplay_composer_interface.h"
+#include "v1_6/include/idisplay_composer_interface.h"
 #include "v1_0/display_composer_type.h"
 #include "v1_2/display_composer_type.h"
 #include "v1_3/display_composer_type.h"
 #include "v1_4/display_composer_type.h"
 #include "v1_5/display_composer_type.h"
+#include "v1_6/display_composer_type.h"
 #include "v1_1/imode_callback.h"
 #include "v1_1/iseamless_change_callback.h"
 
@@ -122,6 +124,7 @@ struct DisplayComposerVdiAdapter {
         uint16_t& currentValue, uint16_t& maximumValue, int32_t& replyErrorCode);
     int32_t (*SetDisplayVCPFeature)(uint32_t devId, uint8_t vcpCode, uint16_t currentValue);
     int32_t (*GetLayerColor)(uint32_t devId, uint32_t layerId, LayerColor &color);
+    int32_t (*SetDisplayReadBack)(uint32_t devId, bool disableReadback);
 };
 
 using LoadVdiImplFunc = int32_t (*)();
@@ -206,6 +209,7 @@ using GetDisplayVCPFeatureFunc = int32_t (*)(uint32_t devId, uint8_t vcpCode,
         uint16_t& currentValue, uint16_t& maximumValue, int32_t& replyErrorCode);
 using SetDisplayVCPFeatureFunc = int32_t (*)(uint32_t devId, uint8_t vcpCode, uint16_t currentValue);
 using GetLayerColorFunc = int32_t (*)(uint32_t devId, uint32_t layerId, LayerColor &color);
+using SetDisplayReadBackFunc = int32_t (*)(uint32_t devId, bool disableReadback);
 
 } // namespace Composer
 } // namespace Display
