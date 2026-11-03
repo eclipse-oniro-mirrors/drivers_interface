@@ -26,6 +26,7 @@ hdi("display_commontype") {
   sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
   subsystem_name = "hdf"
   part_name = "drivers_interface_display"
+  branch_protector_ret = "pac_ret"
   if (!use_clang_coverage) {
     client_version_script = "display_commontype_proxy_1.0.map"
     server_version_script = "display_commontype_stub_1.0.map"

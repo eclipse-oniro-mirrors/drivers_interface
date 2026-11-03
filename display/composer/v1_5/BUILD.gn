@@ -46,6 +46,7 @@ hdi("display_composer") {
   public_configs = ["../hdifd_parcelable/",]
 
   no_other_header_files = true
+  branch_protector_ret = "pac_ret"
 
   if (!use_clang_coverage) {
     client_version_script = "display_composer_proxy_1.5.map"
