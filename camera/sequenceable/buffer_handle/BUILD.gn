@@ -46,4 +46,7 @@ ohos_shared_library("libbuffer_handle_sequenceable_1.0") {
   subsystem_name = "hdf"
   innerapi_tags = [ "chipsetsdk" ]
   part_name = "drivers_interface_camera"
+  if (!use_clang_coverage) {
+    version_script = "libbuffer_handle_sequenceable_1.0.map"
+  }
 }
