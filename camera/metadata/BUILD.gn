@@ -75,4 +75,7 @@ ohos_shared_library("metadata") {
   public_configs = [ ":camera_metadata_config" ]
   part_name = "drivers_interface_camera"
   subsystem_name = "hdf"
+  if (!use_clang_coverage) {
+    version_script = "libmetadata.map"
+  }
 }
