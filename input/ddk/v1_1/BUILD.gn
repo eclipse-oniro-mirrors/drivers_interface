@@ -26,4 +26,8 @@ hdi("hid_ddk") {
   mode = "ipc"
   subsystem_name = "hdf"
   part_name = "drivers_interface_input"
+  if(!use_clang_coverage) {
+    client_version_script = "hdi_ddk_1.1.map"
+    server_version_script = "hdi_ddk_1.1.map"
+  }
 }

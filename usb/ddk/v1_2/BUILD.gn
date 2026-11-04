@@ -35,4 +35,8 @@ hdi("usb_ddk") {
   subsystem_name = "hdf"
   part_name = "drivers_interface_usb"
   defines = [ "LOG_DOMAIN=0xD002518" ]
+  if(!use_clang_coverage) {
+    client_version_script = "usb_ddk_1.2.map"
+    server_version_script = "usb_ddk_1.2.map"
+  }
 }
