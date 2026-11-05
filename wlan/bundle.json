@@ -20,7 +20,8 @@
           "hdf_core",
           "hilog",
           "c_utils",
-          "ipc"
+          "ipc",
+          "bounds_checking_function"
         ],
         "third_party": []
       },
