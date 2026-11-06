@@ -27,4 +27,8 @@ hdi("scsi_ddk") {
   mode = "ipc"
   subsystem_name = "hdf"
   part_name = "drivers_interface_usb"
+  if(!use_clang_coverage) {
+    client_version_script = "scsi_ddk_1.0.map"
+    server_version_script = "scsi_ddk_1.0.map"
+  }
 }

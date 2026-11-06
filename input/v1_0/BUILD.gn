@@ -34,5 +34,9 @@ if (defined(ohos_lite)) {
     language = "cpp"
     subsystem_name = "hdf"
     part_name = "drivers_interface_input"
+    if(!use_clang_coverage) {
+      client_version_script = "input_1.0.map"
+      server_version_script = "input_1.0.map"
+    }
   }
 }
