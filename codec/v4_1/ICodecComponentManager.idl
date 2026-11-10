@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package ohos.hdi.codec.v4_1;
+import ohos.hdi.codec.v4_0.ICodecComponentManager;
+sequenceable ohos.hdi.codec.ParcelableBuffer;
+
+/**
+ * @brief Defines the APIs for managing the codec components.
+ *
+ * The APIs can be used to:
+ * - Obtain the number of codec components and codec capabilities.
+ * - Create or destroy a codec component.
+ * @since 7.1
+ * @version 4.1
+ */
+interface ICodecComponentManager extends ohos.hdi.codec.v4_0.ICodecComponentManager {
+    /**
+     * @brief Query if decoder support the xps data.
+     * @param mime Indicates the protocol to be query.
+     * @param xps Indicates the xps buffer.
+     * @param isSupport Indicates the query result.
+     *
+     * @return Returns <b>HDF_SUCCESS</b> if the operation is successful.
+     * @return Returns <b>HDF_FAILURE</b> if the execution fails.
+     * @return Returns other values if the underlying layer returns a failure. For details about the error codes,
+     * see <b>OMX_ERRORTYPE</b> defined by OpenMAX IL.
+     *
+     * @since 7.1
+     * @version 4.1
+     */
+    QueryIfDecoderSupportThisXPS([in] String mime, [in] ParcelableBuffer xps, [out] boolean isSupport);
+}

@@ -1,0 +1,33 @@
+import("//build/config/components/hdi/hdi.gni")
+if (defined(ohos_lite)) {
+  group("libcodec_proxy_4.1") {
+    deps = []
+    public_configs = []
+  }
+} else {
+  hdi("codec") {
+    module_name = "codec_service"
+ 
+    sources = [
+      "ICodecComponentManager.idl",
+    ]
+ 
+    deps = [
+      "../parcelable:video_parcel_headers",
+    ]
+ 
+    proxy_deps = [
+      "../v4_0:libcodec_proxy_4.0",
+    ]
+ 
+    stub_deps = [
+      "../v4_0:libcodec_stub_4.0",
+    ]
+
+    no_other_header_files = true
+    branch_protector_ret = "pac_ret"
+    language = "cpp"
+    subsystem_name = "hdf"
+    part_name = "drivers_interface_codec"
+  }
+}
