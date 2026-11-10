@@ -26,7 +26,7 @@ if (defined(ohos_lite)) {
       "IPowerInterface.idl",
       "PowerTypes.idl",
     ]
-
+    sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
     language = "cpp"
     innerapi_tags = [ "chipsetsdk" ]
     subsystem_name = "hdf"
