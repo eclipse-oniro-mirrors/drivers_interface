@@ -77,7 +77,7 @@ protected:
     using BaseType1_5::GetRequest;
 };
 using HdiDisplayComposer =
-    DisplayComposerHdiImpl<IDisplayComposerInterface, V1_5::IDisplayComposer, HdiDisplayCmdRequester>;
+    DisplayComposerHdiImpl<IDisplayComposerInterface, IDisplayComposer, HdiDisplayCmdRequester>;
 } // namespace V1_6
 } // namespace Composer
 } // namespace Display
