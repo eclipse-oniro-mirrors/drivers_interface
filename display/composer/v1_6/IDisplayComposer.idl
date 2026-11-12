@@ -20,20 +20,5 @@ import ohos.hdi.display.composer.v1_6.DisplayComposerType;
 sequenceable OHOS.HDI.Display.HdifdParcelable;
 
 interface IDisplayComposer extends ohos.hdi.display.composer.v1_5.IDisplayComposer {
-    /**
-     * @brief Sets the display readback.
-     *
-     * This interface is reserved as an empty interface and is not called by the upper layer
-     *
-     * @param devId Indicates the ID of the display device.
-     * @param disableReadback Indicates whether to disable display readback.
-     *        - true: Disable display readback (the display content cannot be read back)
-     *        - false: Enable display readback (the display content can be read back normally)
-     *
-     * @return Returns <b>0</b> if the operation is successful; returns an error code defined
-     * in {@link DispErrCode} otherwise.
-     * @since 7.1
-     * @version 1.0
-     */
-    SetDisplayReadBack([in] unsigned int devId, [in] boolean diasbleReadback);
+
 }

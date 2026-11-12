@@ -19,7 +19,7 @@
 #include "v1_4/display_command/display_cmd_requester.h"
 #include "v1_5/display_command/display_cmd_utils.h"
 #include "v1_5/display_composer_type.h"
-#include "v1_6/idisplay_composer.h"
+#include "v1_5/idisplay_composer.h"
 
 namespace OHOS {
 namespace HDI {
