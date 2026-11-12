@@ -136,6 +136,12 @@ EXIT:
         bool retBool = false;
         size_t writePos = requestPacker_.ValidSize();
 
+        if (seqNo == UINT32_MAX && buffer != nullptr) {
+            HDF_LOGI("%{public}s: seqNo %{public}u is max but buffer is not null, drop this frame", __func__, seqNo);
+            dropFrameRequest_ = true;
+            return HDF_FAILURE;
+        }
+        
         do {
             ret = CmdUtils::StartSection(REQUEST_CMD_SET_DISPLAY_CLIENT_BUFFER, requestPacker_);
             DISPLAY_CHK_BREAK(ret != HDF_SUCCESS,
@@ -558,6 +564,12 @@ EXIT:
         bool retBool = false;
         bool result = false;
         size_t writePos = requestPacker_.ValidSize();
+
+        if (seqNo == UINT32_MAX && buffer != nullptr) {
+            HDF_LOGI("%{public}s: seqNo %{public}u is max but buffer is not null, drop this frame", __func__, seqNo);
+            dropFrameRequest_ = true;
+            return HDF_FAILURE;
+        }
 
         do {
             ret = CmdUtils::StartSection(REQUEST_CMD_SET_LAYER_BUFFER, requestPacker_);
@@ -1008,6 +1020,8 @@ protected:
     std::unordered_map<uint32_t, std::vector<int32_t>> compChangeTypes_;
     // devId: [cmdId: (count, len)]
     std::unordered_map<uint32_t, std::unordered_map<int32_t, ReqCmdInfo>> reqCmdMaps = {};
+    // drop the whole frame request when abnormal layer buffer is found
+    bool dropFrameRequest_ = false;
 };
 using HdiDisplayCmdRequester = DisplayCmdRequester<SharedMemQueue<int32_t>, IDisplayComposer>;
 } // namespace V1_0

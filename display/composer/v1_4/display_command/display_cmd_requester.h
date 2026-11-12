@@ -80,6 +80,16 @@ public:
         uint32_t replyEleCnt = 0;
         std::vector<HdifdInfo> outFds;
 
+        if (dropFrameRequest_) {
+            dropFrameRequest_ = false;
+            skipState = 0;
+            ResetCommitState(fence, needFlush, layers, fences);
+            request_->Reset();
+            reply_->Reset();
+            PeriodDataReset();
+            return HDF_FAILURE;
+        }
+        
         int32_t ret = CmdUtils::StartSection(REQUEST_CMD_COMMIT_AND_GET_RELEASE_FENCE, requestPacker_);
         DISPLAY_CHECK(ret != HDF_SUCCESS, goto EXIT);
 
@@ -108,11 +118,8 @@ public:
         ret = DoReplyResults(replyEleCnt, outFds, [&](void *data) -> int32_t {
             FenceData *fenceData = reinterpret_cast<struct FenceData *>(data);
             if (fenceData == nullptr) {
-                fence = -1;
                 skipState = -1;
-                needFlush = false;
-                layers.clear();
-                fences.clear();
+                ResetCommitState(fence, needFlush, layers, fences);
                 return HDF_FAILURE;
             }
             fence = fenceData->fence_;
@@ -156,6 +163,15 @@ EXIT:
         return ret;
     }
 
+    void ResetCommitState(int32_t &fence, bool &needFlush, std::vector<uint32_t> &layers, std::vector<int32_t> &fences)
+    {
+        fence = -1;
+        needFlush = false;
+        layers.clear();
+        fences.clear();
+        HDF_LOGI("%{public}s", __func__);
+    }
+
 protected:
     sptr<CompHdi> hdi_1_4_;
     sptr<CompHdi> hdi_v1_4_;
@@ -168,6 +184,7 @@ private:
     using BaseType1_3::PeriodDataReset;
     using BaseType1_3::requestHdiFds_;
     using BaseType1_3::DoReplyResults;
+    using BaseType1_3::dropFrameRequest_;
 
     // CommitAndGetReleaseFence
     struct FenceData {
