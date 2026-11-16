@@ -23,6 +23,8 @@ hdi("intell_voice_engine") {
     "IntellVoiceEngineTypes.idl",
   ]
 
+  sequenceable_ext_deps  = [ "bounds_checking_function:libsec_shared" ]
+
   language = "cpp"
   subsystem_name = "hdf"
   part_name = "drivers_interface_intelligent_voice"
