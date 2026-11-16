@@ -68,11 +68,6 @@ public:
                 handle = buffer;
             }
             HDF_LOGD("insert %{public}s: callerId=%{public}u, seqNo=%{public}u", __func__, callerId, seqNo);
-        } else if (buffer != nullptr && seqNo == UINT32_MAX) {
-            // Caches not used
-            HDF_LOGI("%{public}s: buffer cache passthrough", __func__);
-            handle = buffer;
-            needFreeBuffer = true;
         } else {
             // Input arguments error
             DISPLAY_CHK_RETURN(((buffer == nullptr)), nullptr,
