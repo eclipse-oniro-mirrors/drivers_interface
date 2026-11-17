@@ -51,6 +51,19 @@ public:
      * @version 1.0
      */
     virtual int32_t SetDisplayReadBackSmq(uint32_t devId, bool disableReadback) = 0;
+
+    /**
+     * @brief client layer buffer format dataspace and size
+     *
+     * @param devId Indicates the ID of the display device.
+     * @param property is the client target property, including pixelFormat, dataspace, with and height.
+     *
+     * @return Returns <b>0</b> if the operation is successful; returns an error code defined
+     * in {@link DispErrCode} otherwise.
+     * @since 7.1
+     * @version 1.0
+     */
+    virtual int32_t GetDisplayClientTargetPropertyInfo(uint32_t devId, ClientTargetPropertyInfo& property) = 0;
 };
 } // V1_6
 } // Composer

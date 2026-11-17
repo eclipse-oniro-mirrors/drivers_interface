@@ -20,6 +20,7 @@
 #include "v1_5/hdi_impl/display_composer_hdi_impl.h"
 #include "v1_6/display_command/display_cmd_requester.h"
 #include "v1_6/display_composer_type.h"
+#include "v1_6/idisplay_composer.h"
 #include "v1_6/include/idisplay_composer_interface.h"
 #include <cinttypes>
 
@@ -60,7 +61,7 @@ public:
     }
 
     DisplayComposerHdiImpl(sptr<CompHdi> hdi, std::shared_ptr<CmdReq> req)
-        : BaseType1_5(hdi, req) {}
+        : BaseType1_5(hdi, req), hdi_v1_6_(hdi) {}
 
     virtual ~DisplayComposerHdiImpl() {}
 
@@ -71,14 +72,22 @@ public:
         return ToDispErrCode(reqCur->SetDisplayReadBackSmq(devId, disableReadback));
     }
 
+    virtual int32_t GetDisplayClientTargetPropertyInfo(uint32_t devId, ClientTargetPropertyInfo& property) override
+    {
+        COMPOSER_CHECK_NULLPTR_RETURN(hdi_v1_6_);
+        return ToDispErrCode(hdi_v1_6_->GetDisplayClientTargetPropertyInfo(devId, property));
+    }
+
 protected:
     using BaseType1_5 = V1_5::DisplayComposerHdiImpl<Interface, CompHdi, CmdReq>;
     using BaseType1_5::WAIT_TIME_INTERVAL;
     using BaseType1_5::ToDispErrCode;
     using BaseType1_5::GetRequest;
+
+    sptr<CompHdi> hdi_v1_6_;
 };
 using HdiDisplayComposer =
-    DisplayComposerHdiImpl<IDisplayComposerInterface, V1_5::IDisplayComposer, HdiDisplayCmdRequester>;
+    DisplayComposerHdiImpl<IDisplayComposerInterface, V1_6::IDisplayComposer, HdiDisplayCmdRequester>;
 } // namespace V1_6
 } // namespace Composer
 } // namespace Display
