@@ -19,11 +19,11 @@
       "ram": "1MB",
       "deps": {
         "components": [
+          "bounds_checking_function",
           "c_utils",
           "hilog",
           "hdf_core",
-          "ipc",
-          "bounds_checking_function"
+          "ipc"
         ]
       },
         "build": {
