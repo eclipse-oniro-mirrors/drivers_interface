@@ -17,7 +17,7 @@
 #define OHOS_HDI_DISPLAY_V1_6_DISPLAY_CMD_REQUESTER_H
 
 #include "v1_5/display_command/display_cmd_requester.h"
-#include "v1_5/idisplay_composer.h"
+#include "v1_6/idisplay_composer.h"
 #include "v1_6/display_command/display_cmd_utils.h"
 #include "v1_6/display_composer_type.h"
 
@@ -89,7 +89,7 @@ protected:
 private:
     using BaseType1_5 = V1_5::DisplayCmdRequester<Transfer, CompHdi>;
 };
-using HdiDisplayCmdRequester = V1_6::DisplayCmdRequester<SharedMemQueue<int32_t>, V1_5::IDisplayComposer>;
+using HdiDisplayCmdRequester = V1_6::DisplayCmdRequester<SharedMemQueue<int32_t>, V1_6::IDisplayComposer>;
 } // namespace V1_6
 } // namespace Composer
 } // namespace Display
