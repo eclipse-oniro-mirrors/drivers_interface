@@ -16,7 +16,6 @@
 package ohos.hdi.display.composer.v1_6;
 
 import ohos.hdi.display.composer.v1_5.IDisplayComposer;
-import ohos.hdi.display.composer.v1_0.DisplayComposerType;
 import ohos.hdi.display.composer.v1_6.DisplayComposerType;
 sequenceable OHOS.HDI.Display.HdifdParcelable;
 

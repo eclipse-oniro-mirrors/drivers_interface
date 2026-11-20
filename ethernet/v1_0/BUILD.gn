@@ -26,6 +26,7 @@ if (defined(ohos_lite)) {
       "IEthernet.idl",
     ]
     language = "c"
+    sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
     mode = "ipc"
     subsystem_name = "hdf"
     part_name = "drivers_interface_ethernet"
