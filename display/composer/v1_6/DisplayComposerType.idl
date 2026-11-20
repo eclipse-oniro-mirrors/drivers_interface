@@ -48,3 +48,12 @@ enum DispCmd : ohos.hdi.display.composer.v1_2.DispCmd {
     REPLY_CMD_BUTT_V1_6,
 };
 
+/**
+ * @brief Defines the client target property
+ */
+ struct ClientTargetPropertyInfo {
+    int pixelFormat;                /**<Format of client layer> */
+    int dataspace;                  /**<Dataspace of client layer> */
+    unsigned int with;              /**<Width of client layer> */
+    unsigned int height;            /**<Height of client layer> */
+ };
