@@ -33,6 +33,11 @@ if (defined(ohos_lite)) {
     ]
 
     sequenceable_ext_deps = [ "bounds_checking_function:libsec_shared" ]
+    sanitize = {
+      cfi = true
+      cfi_cross_dso = true
+      debug = false
+    }
     branch_protector_ret = "pac_ret"
     no_other_header_files = true
     generate_with_version = true
